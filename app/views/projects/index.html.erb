@@ -1,0 +1,63 @@
+<div class="container">
+	<div class="page-header">
+	  <h3>Active Projects</h3>
+	  <h4 class="muted">Projects seeking investors like you.</h4>
+	</div>
+
+	<div class="row">
+		<div class="span9">
+		<ul class="thumbnails">
+			<% @projects.each do |project| %>
+				<li class="span3">
+					<div class="thumbnail">
+						<%= image_tag project.avatar(:medium) %>
+					</div>
+					<div class="caption">
+		  				<h4 style="margin-bottom: 5px;"><%= link_to project.project_name, project %></h4>
+		  				<strong><%= link_to project.project_owner, project %></strong>
+		  				<p style="margin-top: 5px;">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		  			</div>
+		  			<div class="index-funding">
+			  			<div class="progress">
+							<div class="bar" style="width: <%= project.project_percentcurrentfunded %>%;"></div>
+						</div>
+						<div class="index-funding-percent">
+				  			<strong><%= number_to_percentage(project.project_percentcurrentfunded, :precision => 0) || number_to_percentage(0, :precision => 0)%></strong>
+				  			<p>FUNDED</p>
+				  		</div>
+				  		<div class="index-funding-total">
+				  			<strong><%= number_to_currency(project.project_currentfunded, :precision => 0) || number_to_currency(0, :precision => 0) %></strong>
+				  			<p>INVESTED</p>
+				  		</div>
+				  		<div class="index-funding-savings">
+				  			<strong>6.5<%= project.project_percentcurrentfunded %>%</strong>
+				  			<p>EST. RETURN</p>
+				  		</div>
+		  			</div>
+		  		</li>
+	  		<% end %>
+	  	</ul>
+	  </div>
+
+          <div class="span3">
+            <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                <li class="nav-header">Featured</li>
+                <li><%= link_to "Project1", "/path1"  %></li>
+                <li><%= link_to "Project2", "/path2"  %></li>
+                <li><%= link_to "Project3", "/path3"  %></li>
+                <li class="nav-header">Cities</li>
+                <li><%= link_to "Toronto", "/path1"  %></li>
+                <li><%= link_to "New York City", "/path2"  %></li>
+                <li><%= link_to "Chicago", "/path3"  %></li>
+                <li class="nav-header">Categories</li>
+                <li><%= link_to "Lighting", "/path1"  %></li>
+                <li><%= link_to "HVAC", "/path2"  %></li>
+                <li><%= link_to "Air Systems", "/path3"  %></li>
+              </ul>
+            </div><!--/.well -->
+          </div><!--/span-->
+        </div>
+    </div>
+</div>
+
