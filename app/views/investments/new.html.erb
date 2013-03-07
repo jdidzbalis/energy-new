@@ -1,0 +1,64 @@
+<div class="container">
+	<div class="row">
+		<div class="span8">
+			<div class="page-header">
+				<h3>Invest in <%= @project.project_name %></h3>
+			</div>
+			<div class="details-title">
+				<strong>Investment Details</strong>
+			</div>
+			<table class="table-body">
+				<tr>
+					<td><strong>Funding Amount: </strong></td>
+					<td><%= @investment.investment_fundinglevel %></td>
+				</tr>
+				<tr>
+					<td><strong>Expected Loan Duration: </strong></td>
+					<td>6 years</td>
+				</tr>
+				<tr>
+					<td><strong>Expected Rate of Return: </strong></td>
+					<td>7.5 %</td>
+				</tr>
+				<tr>
+					<td><strong>Expected Monthly Repayment: </strong></td>
+					<td>$150</td>
+				</tr>
+				<tr>
+					<td><strong>Expected Total Energy Savings: </strong></td>
+					<td>25,000 kwH</td>
+				</tr>
+			</table>
+			<div class="details-title">
+				<strong>Payment Checkout</strong>
+			</div>
+			<h3>Credit Card Form Goes Here</h3>
+					<%= form_for @investment, html: {class: "form-horizontal"}, method: :post do |f| %>
+					
+							<%= f.hidden_field :project_id, value: @project.id %>
+							<%= f.hidden_field :investment_fundinglevel, value: @investment.investment_fundinglevel %>
+
+						
+							<%= submit_tag "Submit Investment", class: 'btn' %>
+							<%= link_to "Cancel", projects_path(@project), class: 'btn' %>
+						
+					<% end %>
+		</div>
+		<div class="span3" style="border-left: 1px dotted; padding-left: 15px; margin-top: 50px;">
+			<h3>Notes:</h3>
+			<strong>Investment Approval</strong>
+			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque.</p>
+			<strong>Third Party Processor</strong>
+			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque.</p>
+			<strong>Accumulation of Returns</strong>
+			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque.</p>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+

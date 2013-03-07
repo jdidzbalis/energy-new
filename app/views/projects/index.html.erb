@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="page-header">
-	  <h3>Active Projects</h3>
-	  <h4 class="muted">Projects seeking investors like you.</h4>
+	  <h3>Connect With Projects</h3>
+	  <h4 class="muted">Seeking lenders like you.</h4>
 	</div>
 
 	<div class="row">
@@ -12,10 +12,14 @@
 					<div class="thumbnail">
 						<%= image_tag project.avatar(:medium) %>
 					</div>
-					<div class="caption">
+					<div class="index-caption">
 		  				<h4 style="margin-bottom: 5px;"><%= link_to project.project_name, project %></h4>
 		  				<strong><%= link_to project.project_owner, project %></strong>
-		  				<p style="margin-top: 5px;">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		  				<% if project.completed? %>
+		  					<h5 style="margin-top: 30px; text-align: center; color: #ababab;">PROJECT IS FULLY FUNDED</h5>
+		  				<% else %>
+		  					<p style="margin-top: 5px;">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		  				<% end %>
 		  			</div>
 		  			<div class="index-funding">
 			  			<div class="progress">
@@ -30,10 +34,22 @@
 				  			<p>INVESTED</p>
 				  		</div>
 				  		<div class="index-funding-savings">
-				  			<strong>6.5<%= project.project_percentcurrentfunded %>%</strong>
-				  			<p>EST. RETURN</p>
+				  			<strong><%= project.project_esavings %> kwH</strong>
+				  			<p>SAVINGS</p>
 				  		</div>
 		  			</div>
+		  			<% if admin_signed_in? %>
+		  				<% @project = project %>
+		  				<div class="index-operational">
+		  					<%= simple_form_for @project do |f| %>
+						        <%= f.input :y1savings, label: 'Year 1 Enery Savings' %>
+						        <%= f.input :y1energyprice, label: 'Year 1 Energy Price' %>						        
+							        <div class="actions">
+							          <%= f.button :submit, "Make Operational" %>
+							        </div>
+					      <% end %>
+		  				</div>
+		  			<% end %>
 		  		</li>
 	  		<% end %>
 	  	</ul>

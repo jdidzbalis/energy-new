@@ -13,6 +13,7 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
@@ -47,44 +48,44 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
           <a class="brand" href="#">EnergyNew</a>
-          <div class="container nav-collapse">
             <ul class="nav">
               <li><%= link_to "Browse Projects", projects_path  %></li>
               <li><%= link_to "Submit Project", projects_path  %></li>
             </ul>
             <ul class="nav pull-right">
 				<% if user_signed_in? %>
-					
 					<li class="dropdown">
 						 <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
       						<%= current_user.full_name %>
       						<b class="caret"></b>
     					</a>
     					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-   							<% if current_user.try(:admin?) %>
-	  							<li><%= link_to 'Add Project', new_project_path %></li>
-	  							<li><%= link_to 'Enter Savings', projects_index_savings_path %></li>
-	  							<li><%= link_to 'Process Returns', admin_project_returns_path %></li>
-	  						<% else %>
-		  						<li><%= link_to 'Track Your Investments', project_fundings_path %></li>
-	   							<li><%= link_to 'View Your Repayment Schedule', project_fundings_path %></li>
+		  						<li><%= link_to 'View Your Investments', investments_path %></li>
+	   							<li><%= link_to 'View Your Repayment Schedule', investments_path %></li>
+                  <li><%= link_to 'View Your Credit Account', investments_path %></li>
 	   							<li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-							<% end %>
     					</ul>
     				</li>
 					<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+        <% elsif admin_signed_in? %>
+          <li class="dropdown">
+             <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+              <%= current_admin.first_name %>
+                  <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><%= link_to 'Add Project', new_project_path %></li>
+                  <li><%= link_to 'Enter Savings', returns_path %></li>
+                  <li><%= link_to 'Process Returns', projects_path %></li>
+              </ul>
+            </li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 				<% else %>
 					<li><%= link_to "Sign Up", register_path %></li>
 					<li><%= link_to "Sign In", login_path %></li>
 				<% end %>
 			</ul>
-          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>

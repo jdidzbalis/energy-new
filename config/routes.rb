@@ -1,4 +1,5 @@
 EnergyNew::Application.routes.draw do
+  
   devise_for :admins
 
   devise_for :users
@@ -15,6 +16,8 @@ EnergyNew::Application.routes.draw do
 
   resources :projects
   resources :investments
+  resources :returns
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

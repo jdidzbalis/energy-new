@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="span8 offset2">
+      <div class="page-header">
+        <h1>Input Energy Savings</h1>
+      </div>
+      
+      <%= simple_form_for @project, :url => projects_path, :html => { :multipart => true, class: "form-horizontal form-actions"} do |f| %>
+
+
+        <%= f.input :project_name, label: 'Project Name' %>
+        <%= f.input :project_owner, label: 'Project Owner' %>
+        <%= f.input :project_location, label: 'Project Location' %>
+        <%= f.input :project_opdate, label: 'Operational Date' %>
+        <%= f.input :project_cost, label: 'Capital Cost' %>
+        <%= f.input :project_esavings, label: 'Total Energy Savings' %>
+        <%= f.input :project_fundlevel1, label: 'Funding Level 1' %>
+        <%= f.input :project_fundlevel2, label: 'Funding Level 2' %>
+        <%= f.input :project_fundlevel3, label: 'Funding Level 3' %>
+        <%= f.input :project_fundlevel4, label: 'Funding Level 4' %>
+        <%= f.input :project_fundlevel5, label: 'Funding Level 5' %>
+
+        <%= f.file_field :avatar %>
+        
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
