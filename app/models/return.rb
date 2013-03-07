@@ -9,6 +9,7 @@
 #  project_id              :integer
 #  investment_fundinglevel :integer
 #  state_returns           :string(255)
+#  return_per_diem         :decimal(, )
 #
 
 class Return < ActiveRecord::Base
@@ -17,11 +18,11 @@ class Return < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
-attr_accessible :user_id, :project_id, :investment_fundinglevel, :project, :user, :state_returns
+attr_accessible :user_id, :project_id, :investment_fundinglevel, :project, :user, :state_returns, :refund_individual_per_diem
 
 state_machine :state_returns, initial: :pending do 
 
-    after_transition on: :active, :do => :inactive
+    after_transition on: :active, :do => :run_returns
 
     event :active do
   		transition any => :activated
@@ -29,7 +30,13 @@ state_machine :state_returns, initial: :pending do
 
 end
 
+def calculate_investor_returns
+	return_per_diem = investment_fundinglevel * project.total_return_per_diem / project.project_cost
+	update_attribute(:return_per_diem, return_per_diem)
+end
 
+def run_returns
+end
 
 
 end

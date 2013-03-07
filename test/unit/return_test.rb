@@ -9,6 +9,7 @@
 #  project_id              :integer
 #  investment_fundinglevel :integer
 #  state_returns           :string(255)
+#  return_per_diem         :decimal(, )
 #
 
 require 'test_helper'

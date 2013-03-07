@@ -17,7 +17,6 @@ class InvestmentsController < ApplicationController
 		@investment = Investment.create!(user: current_user, project: @project, investment_fundinglevel: @funding_level)
 		@project.update_current_funded
 		@project.update_percent_current_funded
-		@project.check_status
 		@return = Return.create!(user: current_user, project: @project, investment_fundinglevel: @funding_level, state_returns: 'pending')
 	end
 

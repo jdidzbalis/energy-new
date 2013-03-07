@@ -44,7 +44,7 @@
             $('.dropdown-toggle').dropdown();  
         });  
 </script>  
-
+<div class="wrapper">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -97,18 +97,19 @@
             <%= yield %>
           </div>
         </div><!--/row-->
-        
-
-      <footer>
-        <p>&copy; EnergyNew 2013</p>
-      </footer>
-
     </div> <!-- /container -->
-
+    <div class="push"></div>
+</div>
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
+
+  <footer>
+      <div class="container">
+        <p>EnergyNew 2013 | Toronto, Ontario</p>
+      </div>
+    </footer>
 
   </body>
 </html>

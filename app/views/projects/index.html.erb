@@ -5,7 +5,7 @@
 	</div>
 
 	<div class="row">
-		<div class="span9">
+		<div class="span10">
 		<ul class="thumbnails">
 			<% @projects.each do |project| %>
 				<li class="span3">
@@ -34,7 +34,7 @@
 				  			<p>INVESTED</p>
 				  		</div>
 				  		<div class="index-funding-savings">
-				  			<strong><%= project.project_esavings %> kwH</strong>
+				  			<strong><%= project.project_esavings %> kWh</strong>
 				  			<p>SAVINGS</p>
 				  		</div>
 		  			</div>
@@ -55,7 +55,7 @@
 	  	</ul>
 	  </div>
 
-          <div class="span3">
+          <div class="span2">
             <div class="well sidebar-nav">
               <ul class="nav nav-list">
                 <li class="nav-header">Featured</li>
@@ -64,7 +64,7 @@
                 <li><%= link_to "Project3", "/path3"  %></li>
                 <li class="nav-header">Cities</li>
                 <li><%= link_to "Toronto", "/path1"  %></li>
-                <li><%= link_to "New York City", "/path2"  %></li>
+                <li><%= link_to "New York", "/path2"  %></li>
                 <li><%= link_to "Chicago", "/path3"  %></li>
                 <li class="nav-header">Categories</li>
                 <li><%= link_to "Lighting", "/path1"  %></li>

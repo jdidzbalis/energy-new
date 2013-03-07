@@ -43,21 +43,27 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    @return = Return.where(project_id: @project)
+
+    @return.each do |returns|
+      returns.update_attribute(:state_returns, 'active')
+      returns.calculate_investor_returns
+    end
+
+    @project.calculate_project_returns
+
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to @project, notice: 'Project has been made operational. Returns will now be processed.' }
+        format.html { redirect_to @project, notice: 'Project successfully operating. Returns now activated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @return.errors, status: :unprocessable_entity }
       end
+      
+     
 
-      @return = Return.where(project_id: @project)
-
-      @return.each do |returns|
-        returns.update_attribute(:state_returns, 'active')
-      end
 
     end
   end

@@ -25,6 +25,9 @@
 #  project_percentcurrentfunded :integer
 #  project_fundingstatus        :string(255)
 #  project_sharesavings         :integer
+#  y1savings                    :integer
+#  y1energyprice                :integer
+#  total_return_per_diem        :decimal(, )
 #
 
 class Project < ActiveRecord::Base
@@ -33,7 +36,7 @@ class Project < ActiveRecord::Base
 	attr_accessible :avatar, :project_name, :project_owner, :project_location, :project_opdate,
 				:project_cost, :project_esavings, :project_fundlevel1, :project_fundlevel2, :project_fundlevel3,
 				:project_fundlevel4, :project_fundlevel5, :project_currentfunded, :project_percentcurrentfunded,
-				:project_fundingstatus, :project_sharesavings, :y1savings, :y1energyprice
+				:project_fundingstatus, :project_sharesavings, :y1savings, :y1energyprice, :total_return_per_diem
 
   has_many :investments
   has_many :credits
@@ -61,20 +64,22 @@ def update_current_funded
 end
 
 def update_percent_current_funded
-  if project_currentfunded * 100 / project_cost > 100
+  if project_currentfunded / project_cost >= 1
   	update_attribute(:project_percentcurrentfunded, 100)
+    update_attribute(:project_fundingstatus, 'completed')
+   
   else
   	percent = project_currentfunded * 100 / project_cost
     update_attribute(:project_percentcurrentfunded, percent)
+  
   end
 
 end
 
-def check_status
-	if update_percent_current_funded = 100
-		update_attribute(:project_fundingstatus, 'completed')
-	end
+def calculate_project_returns
+  total_return = y1savings * y1energyprice * project_sharesavings / 100
+  total_return_per_diem = total_return / 365
+  update_attribute(:total_return_per_diem, total_return_per_diem)
 end
-
 
 end

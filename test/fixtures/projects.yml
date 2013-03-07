@@ -25,6 +25,9 @@
 #  project_percentcurrentfunded :integer
 #  project_fundingstatus        :string(255)
 #  project_sharesavings         :integer
+#  y1savings                    :integer
+#  y1energyprice                :integer
+#  total_return_per_diem        :decimal(, )
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

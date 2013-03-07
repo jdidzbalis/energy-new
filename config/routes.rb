@@ -12,7 +12,7 @@ EnergyNew::Application.routes.draw do
     get 'login', to: 'devise/sessions#new', as: :login
   end
 
-  root :to => "projects#index"
+  root :to => "home#index"
 
   resources :projects
   resources :investments
