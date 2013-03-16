@@ -45,13 +45,16 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @return = Return.where(project_id: @project)
 
+    @project.update_attributes(params[:project])
+
+    @project.calculate_project_returns
+    
     @return.each do |returns|
       returns.update_attribute(:state_returns, 'active')
       returns.calculate_investor_returns
     end
 
-    @project.calculate_project_returns
-
+    
 
     respond_to do |format|
       if @project.update_attributes(params[:project])

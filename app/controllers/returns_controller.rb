@@ -2,9 +2,18 @@ class ReturnsController < ApplicationController
   # GET /returns
   # GET /returns.json
   def index
-    @returns = Return.all
+    @returns = current_user.returns.all
 
-    respond_to do |format|
+    @todate = []
+
+    @returns.each do |r|
+      @todate << (Date.today - r.created_at.to_date).to_i * r.return_per_diem
+    end
+
+    @sum = 0
+    @todate.each { |a| @sum+=a }
+
+    respond_to do  |format|
       format.html # index.html.erb
       format.json { render json: @returns }
     end

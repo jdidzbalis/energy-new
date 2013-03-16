@@ -15,14 +15,13 @@
 class Return < ActiveRecord::Base
   # attr_accessible :title, :body
 
-  belongs_to :project
   belongs_to :user
+  belongs_to :project
+  
 
 attr_accessible :user_id, :project_id, :investment_fundinglevel, :project, :user, :state_returns, :refund_individual_per_diem
 
 state_machine :state_returns, initial: :pending do 
-
-    after_transition on: :active, :do => :run_returns
 
     event :active do
   		transition any => :activated
@@ -35,8 +34,6 @@ def calculate_investor_returns
 	update_attribute(:return_per_diem, return_per_diem)
 end
 
-def run_returns
-end
 
 
 end

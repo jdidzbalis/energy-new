@@ -48,7 +48,7 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">EnergyNew</a>
+          <a class="brand" href="../">EnergyNew</a>
             <ul class="nav">
               <li><%= link_to "Browse Projects", projects_path  %></li>
               <li><%= link_to "Submit Project", projects_path  %></li>
@@ -62,8 +62,7 @@
     					</a>
     					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 		  						<li><%= link_to 'View Your Investments', investments_path %></li>
-	   							<li><%= link_to 'View Your Repayment Schedule', investments_path %></li>
-                  <li><%= link_to 'View Your Credit Account', investments_path %></li>
+                  <li><%= link_to 'View Your Credit Account', returns_path %></li>
 	   							<li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
     					</ul>
     				</li>

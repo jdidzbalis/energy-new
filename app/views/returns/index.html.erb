@@ -1,3 +1,55 @@
 <div class="page-header">
-  <h4>Input Energy Savings</h4>
+  <h4>Your Returns Account</h4>
 </div>
+
+<div class="container">
+	<div class="row">
+		<div class="span12">
+		<ul class="thumbnails">
+		  <li class="span12">
+		    <div class="thumbnail" style="text-align: center;">
+		      <strong>Your total accumulated credit as of <%= Time.now.strftime("%m/%d/%Y") %> is</strong>
+		      <h1><%= number_to_currency(@sum, :precision => 0) %></h1>
+		      <%= link_to "Transfer Funds", investments_path %> | <%= link_to "View Transfer History", investments_path %> | <%= link_to "View Average Return", investments_path %>
+		    </div>
+		  </li>
+		</ul>
+	</div>
+	</div>
+
+
+	<div class="row">
+		<div class="span9">
+			<table class="table">
+				<tr>
+					<td><strong>Project Name</strong></td>
+					<td><strong>Your Investment</strong></td>
+					<td><strong>Date Invested</strong></td>
+					<td><strong>Energy Savings</strong></td>
+					<td><strong>Year Ending</strong></td>
+				</tr>
+				<% @returns.each do |r| %>
+					<% project = r.project %>
+				<tr>
+					<td><%= project.project_name %></td>
+					<td><%= r.investment_fundinglevel %></td>
+					<td><%= r.created_at.strftime("%m/%d/%Y") %></td>
+					<td>5000</td>
+					<td>Date Invested</td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+		<div class="span3">
+            <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                <li class="nav-header">Need Help?</li>
+                <p style="font-size: 11px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id lectus ut nunc convallis viverra. Aenean vel quam arcu, id vulputate nisi. Proin fermentum ultrices purus eu ultricies. Suspendisse hendrerit sem eu lectus egestas varius consequat tortor pretium. Vestibulum gravida eros eu mauris mollis viverra. </p>
+                <li class="nav-header">How It Works</li>
+                <p style="font-size: 11px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id lectus ut nunc convallis viverra. Aenean vel quam arcu, id vulputate nisi. Proin fermentum ultrices purus eu ultricies. Suspendisse hendrerit sem eu lectus egestas varius consequat tortor pretium. Vestibulum gravida eros eu mauris mollis viverra. </p>
+              </ul>
+            </div><!--/.well -->
+          </div><!--/s
+	</div>
+</div>
+

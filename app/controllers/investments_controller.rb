@@ -18,6 +18,7 @@ class InvestmentsController < ApplicationController
 		@project.update_current_funded
 		@project.update_percent_current_funded
 		@return = Return.create!(user: current_user, project: @project, investment_fundinglevel: @funding_level, state_returns: 'pending')
+		flash[:alert] = "You have successfully invested $#{@return.investment_fundinglevel} in #{@project.project_name}"
 	end
 
 	def index

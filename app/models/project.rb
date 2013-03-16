@@ -40,7 +40,7 @@ class Project < ActiveRecord::Base
 
   has_many :investments
   has_many :credits
-  has_attached_file :avatar, :styles => { :large => "940x600#", :medium => "300x200>", :small => "200x200>" },
+  has_attached_file :avatar, :styles => { :large => "940x600#", :medium => "300x200>", :small => "64x64>" },
 		:path => ":rails_root/public/system/:attachment/:id/:style/:filename",
       	:url => "/system/:attachment/:id/:style/:filename"
 

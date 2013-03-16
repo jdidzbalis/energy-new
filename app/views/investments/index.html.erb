@@ -1,48 +1,62 @@
 <div class="container">
 	<div class="page-header">
-		<h3>Your Investments</h3>
+		<h4>Your Investments</h4>
 	</div>
 	<div class="row">
-		<div class="span12">
-		<% if @investments.present? %>
-			<div class="page-header">
-				<h4>Projects Operating</h4>
-				<p>Project fully operating and cost savings associated with decreased energy use are being returned to you.</p>
+		<div class="span9">
+				<ul class="nav nav-pills">
+					<li class="active">
+						<a href="#tab1" data-toggle="tab">Projects Actively Funding</a>
+					</li>
+					<li>
+						<a href="#tab2" data-toggle="tab">Projects Under Construction</a>
+					</li>
+					<li>
+						<a href="#tab2" data-toggle="tab">Projects In Operation</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+				<div class="tab-pane active" id="tab1">
+								<table class="table">
+									<tr>
+								    	<td><strong>Project Name</strong></td>
+								    	<td><strong>Project Owner</strong></td>
+								    	<td><strong>Your Investment</strong></td>
+								    	<td><strong>Percent Funded</strong></td>
+								    	<td><strong>Est. Operation Date</strong></td>
+								    	<td><strong></strong></td>
+									</tr>
+									<% @investments.each do |investment| %>
+										<% project = investment.project %>
+										<% if project.inprogress? %>
+												<tr>
+													<td><%= link_to project.project_name %></td>
+											    	<td><%= project.project_owner %></td>
+											    	<td><%= number_to_currency(investment.investment_fundinglevel, :precision => 0) %></td>
+											    	<td><%= number_to_percentage(project.project_percentcurrentfunded, :precision => 0) %></td>
+											    	<td>March 2014</td>
+											    	<td><%= link_to "View Project", project %></td>
+											    </tr>
+											
+										<% end %>
+									<% end %>
+								</table>		
+				</div>
+				<div class="tab-pane" id="tab2">
+				</div>
+				<div class="tab-pane" id="tab3">
+				</div>
 			</div>
-				<% @investments.each do |investment| %>
-					<% investment = investment.project %>
-						<% if investment.operational? %>
-							<h4><%= investment.project_name %> | <%= investment.project_owner %></h4>
-					<% end %>
-				<% end %>
-			<div class="page-header">
-				<h4>Projects Under Development</h4>
-				<p>Fully funded and currently under development.</p>
-			</div>
-				<% @investments.each do |investment| %>
-					<% investment = investment.project %>
-						<% if investment.completed? %>
-							<h4><%= investment.project_name %> | <%= investment.project_owner %></h4>
-					<% end %>
-				<% end %>
-			<div class="page-header">
-				<h4>Projects Actively Funding</h4>
-				<p>Still actively funding.</p>
-			</div>
-				<% @investments.each do |investment| %>
-					<% investment = investment.project %>
-						<% if investment.inprogress? %>
-							<h4><%= investment.project_name %> | <%= investment.project_owner %></h4>
-							<table class="table">
-								<tr>
-									<td></td>
-								</tr>
-							</table>
-					<% end %>
-				<% end %>
-		<% else %>
-			<p style="text-align: center;">You currently do not have any investments</p>
-		<% end %>
-	</div>
+		</div>
+		 <div class="span3">
+            <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                <li class="nav-header">Need Help?</li>
+                <p style="font-size: 11px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id lectus ut nunc convallis viverra. Aenean vel quam arcu, id vulputate nisi. Proin fermentum ultrices purus eu ultricies. Suspendisse hendrerit sem eu lectus egestas varius consequat tortor pretium. Vestibulum gravida eros eu mauris mollis viverra. </p>
+                <li class="nav-header">How It Works</li>
+                <p style="font-size: 11px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id lectus ut nunc convallis viverra. Aenean vel quam arcu, id vulputate nisi. Proin fermentum ultrices purus eu ultricies. Suspendisse hendrerit sem eu lectus egestas varius consequat tortor pretium. Vestibulum gravida eros eu mauris mollis viverra. </p>
+              </ul>
+            </div><!--/.well -->
+          </div>
 	</div>
 </div>

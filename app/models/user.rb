@@ -35,7 +35,7 @@ validates :last_name, presence: true
 validates :location, presence: true
 
 has_many :investments
-has_many :credits
+has_many :returns
 
 
 	def full_name
