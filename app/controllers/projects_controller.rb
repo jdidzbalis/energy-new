@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-	@projects = Project.all
+	@projects_recent = Project.where(:category => 'recent')
 	
     respond_to do |format|
       format.html # index.html.erb

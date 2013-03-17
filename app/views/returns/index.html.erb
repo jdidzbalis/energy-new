@@ -25,17 +25,17 @@
 					<td><strong>Project Name</strong></td>
 					<td><strong>Your Investment</strong></td>
 					<td><strong>Date Invested</strong></td>
-					<td><strong>Energy Savings</strong></td>
-					<td><strong>Year Ending</strong></td>
+					<td><strong>Daily Credit</strong></td>
+					<td><strong>Average Return</strong></td>
 				</tr>
 				<% @returns.each do |r| %>
 					<% project = r.project %>
 				<tr>
 					<td><%= project.project_name %></td>
-					<td><%= r.investment_fundinglevel %></td>
+					<td><%= number_to_currency(r.investment_fundinglevel, :precision => 0) %></td>
 					<td><%= r.created_at.strftime("%m/%d/%Y") %></td>
+					<td><%= number_to_currency(r.return_per_diem, :precision => 0) %></td>
 					<td>5000</td>
-					<td>Date Invested</td>
 				</tr>
 				<% end %>
 			</table>
@@ -49,7 +49,7 @@
                 <p style="font-size: 11px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id lectus ut nunc convallis viverra. Aenean vel quam arcu, id vulputate nisi. Proin fermentum ultrices purus eu ultricies. Suspendisse hendrerit sem eu lectus egestas varius consequat tortor pretium. Vestibulum gravida eros eu mauris mollis viverra. </p>
               </ul>
             </div><!--/.well -->
-          </div><!--/s
+          </div>
 	</div>
 </div>
 

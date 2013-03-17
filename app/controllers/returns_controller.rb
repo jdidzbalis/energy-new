@@ -2,7 +2,7 @@ class ReturnsController < ApplicationController
   # GET /returns
   # GET /returns.json
   def index
-    @returns = current_user.returns.all
+    @returns = Return.where(:user_id => current_user, :state_returns => 'active')
 
     @todate = []
 

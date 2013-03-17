@@ -37,6 +37,10 @@ html {
 	width: 890px;
 }
 
+.navbar-inner li {
+	font-size: 13px;
+}
+
 /* Footer */
 
 footer {

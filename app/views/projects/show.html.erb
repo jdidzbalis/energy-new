@@ -40,48 +40,48 @@
 			<table class="table">
 					<tr>
 						<td><strong>Project Owner</strong></td>
-						<td style="text-align: center; vertical-align: middle;"><%= @project.project_owner %></td>
+						<td style="vertical-align: middle;"><%= @project.project_owner %></td>
 					</tr>
 					<tr>
 						<td><strong>Project Type</strong></td>
-						<td style="text-align: center; vertical-align: middle;">Lighting</td>
+						<td style="vertical-align: middle;">Lighting</td>
 					</tr>
 					<tr>
 						<td><strong>Project Location</strong></td>
-						<td style="text-align: center; vertical-align: middle;"><%= @project.project_location %></td>
+						<td style="vertical-align: middle;"><%= @project.project_location %></td>
 					</tr>
 					<tr>
 						<td><strong>Estimated Operational Date</strong>
 						
 					</td>
-						<td style="text-align: center; vertical-align: middle;"><%= @project.project_opdate %>
+						<td style="vertical-align: middle;"><%= @project.project_opdate %>
 						</td>
 					</tr>
 					<tr>
 						<td><strong>Energy Audit Complete?</strong></td>
-						<td style="text-align: center; vertical-align: middle;">View</td>
+						<td style="vertical-align: middle;">View</td>
 					</tr>
 					<tr>
 						<td><strong>Project Capital Cost</strong></td>
-						<td style="text-align: center; vertical-align: middle;"><%= number_to_currency(@project.project_cost, :precision => 0) %></td>
+						<td style="vertical-align: middle;"><%= number_to_currency(@project.project_cost, :precision => 0) %></td>
 					</tr>
 					<tr>
 						<td><strong>Annual Energy Savings</strong>
 							
 						</td>
-						<td style="text-align: center; vertical-align: middle;"><%= number_with_precision(@project.project_esavings, :precision => 0) %> kWh</td>
+						<td style="vertical-align: middle;"><%= number_with_precision(@project.project_esavings, :precision => 0) %> kWh</td>
 					</tr>
 					<tr>
 						<td><strong>Estimated Annual Cost Savings</strong>
 						
 					</td>
-						<td style="text-align: center; vertical-align: middle;">$20000</td>
+						<td style="vertical-align: middle;">$20000</td>
 					</tr>
 					<tr>
 						<td><strong>Savings Returned To Investors</strong>
 						
 					</td>
-						<td style="text-align: center; vertical-align: middle;">85%</td>
+						<td style="vertical-align: middle;">85%</td>
 					</tr>
 				</table>
 			<h3>Project Description</h3>

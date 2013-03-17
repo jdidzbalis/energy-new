@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309144040) do
+ActiveRecord::Schema.define(:version => 20130317115046) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at",                             :null => false
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130309144040) do
     t.integer  "y1savings"
     t.integer  "y1energyprice"
     t.decimal  "total_return_per_diem"
+    t.string   "category"
   end
 
   create_table "returns", :force => true do |t|

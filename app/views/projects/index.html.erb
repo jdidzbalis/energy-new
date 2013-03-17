@@ -1,3 +1,4 @@
+<% content_for :title, "Browse Our Projects" %>
 <div class="container">
 	<div class="page-header">
 	  <h3>Connect With Projects</h3>
@@ -6,8 +7,59 @@
 
 	<div class="row">
 		<div class="span10">
-		<ul class="thumbnails">
-			<% @projects.each do |project| %>
+			<h4>Recently Added</h4>
+			<ul class="thumbnails">
+			<% @projects_recent.each do |project| %>
+				<li class="span3">
+					<div class="thumbnail">
+						<%= image_tag project.avatar(:medium) %>
+					</div>
+					<div class="index-caption">
+		  				<h4 style="margin-bottom: 5px;"><%= link_to project.project_name, project %></h4>
+		  				<strong><%= link_to project.project_owner, project %></strong>
+		  				<% if project.completed? %>
+		  					<h5 style="margin-top: 30px; text-align: center; color: #ababab;">PROJECT IS FULLY FUNDED</h5>
+		  				<% else %>
+		  					<p style="margin-top: 5px;">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+		  				<% end %>
+		  			</div>
+		  			<div class="index-funding">
+			  			<div class="progress">
+							<div class="bar" style="width: <%= project.project_percentcurrentfunded %>%;"></div>
+						</div>
+						<div class="index-funding-percent">
+				  			<strong><%= number_to_percentage(project.project_percentcurrentfunded, :precision => 0) || number_to_percentage(0, :precision => 0)%></strong>
+				  			<p>FUNDED</p>
+				  		</div>
+				  		<div class="index-funding-total">
+				  			<strong><%= number_to_currency(project.project_currentfunded, :precision => 0) || number_to_currency(0, :precision => 0) %></strong>
+				  			<p>INVESTED</p>
+				  		</div>
+				  		<div class="index-funding-savings">
+				  			<strong><%= project.project_esavings %> kWh</strong>
+				  			<p>SAVINGS</p>
+				  		</div>
+		  			</div>
+		  			<% if admin_signed_in? %>
+		  				<% @project = project %>
+		  				<div class="index-operational">
+		  					<%= simple_form_for @project do |f| %>
+						        <%= f.input :y1savings, label: 'Year 1 Enery Savings' %>
+						        <%= f.input :y1energyprice, label: 'Year 1 Energy Price' %>						        
+							        <div class="actions">
+							          <%= f.button :submit, "Make Operational" %>
+							        </div>
+					      <% end %>
+		  				</div>
+		  			<% end %>
+		  		</li>
+	  		<% end %>
+	  	</ul>
+
+<hr>
+	  	<h4>Successfully Funded</h4>
+			<ul class="thumbnails">
+			<% @projects_recent.each do |project| %>
 				<li class="span3">
 					<div class="thumbnail">
 						<%= image_tag project.avatar(:medium) %>

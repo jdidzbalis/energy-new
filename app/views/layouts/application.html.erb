@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title><%=h yield(:title) %></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,16 +46,20 @@
         });  
 </script>  
 <div class="wrapper">
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="../">EnergyNew</a>
             <ul class="nav">
               <li><%= link_to "Browse Projects", projects_path  %></li>
               <li><%= link_to "Submit Project", projects_path  %></li>
+              <li><form class="navbar-search pull-left">
+                <input type="text" class="search-query" placeholder="Search Project">
+              </form>
+              </li>
             </ul>
-            <ul class="nav pull-right">
-				<% if user_signed_in? %>
+				<ul class="nav pull-right">
+        <% if user_signed_in? %>
 					<li class="dropdown">
 						 <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
       						<%= current_user.full_name %>
