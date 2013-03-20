@@ -1,3 +1,155 @@
-// Place all the styles related to the projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Project Index Page */
+
+.row ul{
+	margin-left: 0px;
+
+}
+
+.thumbnails li{
+	background-color: #ffffff;
+	font-size: 12px;
+	box-shadow: 2px 2px 2px #eeeeee;
+	border: 1px #dddddd solid;
+	padding: 4px 4px 4px 4px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+.index-caption {
+	height: 150px;
+}
+
+.index-funding {
+	background-color: #dddddd;
+	height: 75px;
+	padding-top: 15px;
+}
+
+
+.index-funding-percent {
+	width: 65px;
+	padding-left: 15px;
+	float: left;
+	font-size: 11px;
+}
+
+.index-funding-total {
+	width: 65px;
+	float: left;
+	padding-left: 5px;
+	font-size: 11px;
+}
+
+.index-funding-savings {
+	width: 65px;
+	float: left;
+	padding-left: 5px;
+	font-size: 11px;
+}
+
+.index-funding .progress {
+	height: 8px;
+	width: 170px;
+	margin-left: 25px;
+}
+
+.index-funding .progress .bar{
+	background-color: #dddddd;
+	width: 0;
+}
+
+.index-operational {
+	text-align: center;
+}
+
+/* Show Project Page */
+
+.table tr td {
+	width: 100px;
+}
+
+.show-container {
+	position: relative;
+	width: 940px;
+	margin-top: 20px;
+	
+}
+
+.show-details {
+	width: 450px;
+	min-height: 150px;
+	position: absolute;
+	right: 20px;
+	top: 370px;
+	background-color: #ffffff;
+	opacity: 1;
+	padding: 10px 12px;
+	z-index: 3;
+	border: 1px #000000 solid;
+
+}
+
+.show-photo {
+	position: absolute;
+	width: 940px;
+	height: 500px;
+	z-index: 1;
+	opacity: 0.8;
+
+}
+
+.show-funding {
+	background-color: #dddddd;
+	height: 90px;
+	padding-top: 15px;
+}
+
+
+.show-funding-percent {
+	width: 140px;
+	padding-left: 15px;
+	float: left;
+}
+
+.show-funding-total {
+	width: 140px;
+	float: left;
+	padding-left: 5px;
+}
+
+.show-funding-savings {
+	width: 140px;
+	float: left;
+	padding-left: 5px;
+}
+
+.show-funding .progress {
+	height: 15px;
+	width: 350px;
+	margin-left: 50px;
+	margin-top:10px;
+}
+
+.show-funding .progress .bar{
+	background-color: #dddddd;
+}
+
+
+#investment-levels li{
+	list-style: none;
+	
+	border-bottom: 1px dotted;
+	text-align: center;
+	width: 100%;
+}
+
+.investment-number {
+	font-size: 30px;
+	height: 100%;
+	
+
+}
+
+.investment-block {
+	line-height: 100px;
+}

@@ -1,3 +1,4 @@
+
 <div class="container">
 		<div class="show-container">
 			<div class="show-details">
@@ -37,53 +38,7 @@
 		<div class="span8">
 
 			<h3>Project Details</h3>
-			<table class="table">
-					<tr>
-						<td><strong>Project Owner</strong></td>
-						<td style="vertical-align: middle;"><%= @project.project_owner %></td>
-					</tr>
-					<tr>
-						<td><strong>Project Type</strong></td>
-						<td style="vertical-align: middle;">Lighting</td>
-					</tr>
-					<tr>
-						<td><strong>Project Location</strong></td>
-						<td style="vertical-align: middle;"><%= @project.project_location %></td>
-					</tr>
-					<tr>
-						<td><strong>Estimated Operational Date</strong>
-						
-					</td>
-						<td style="vertical-align: middle;"><%= @project.project_opdate %>
-						</td>
-					</tr>
-					<tr>
-						<td><strong>Energy Audit Complete?</strong></td>
-						<td style="vertical-align: middle;">View</td>
-					</tr>
-					<tr>
-						<td><strong>Project Capital Cost</strong></td>
-						<td style="vertical-align: middle;"><%= number_to_currency(@project.project_cost, :precision => 0) %></td>
-					</tr>
-					<tr>
-						<td><strong>Annual Energy Savings</strong>
-							
-						</td>
-						<td style="vertical-align: middle;"><%= number_with_precision(@project.project_esavings, :precision => 0) %> kWh</td>
-					</tr>
-					<tr>
-						<td><strong>Estimated Annual Cost Savings</strong>
-						
-					</td>
-						<td style="vertical-align: middle;">$20000</td>
-					</tr>
-					<tr>
-						<td><strong>Savings Returned To Investors</strong>
-						
-					</td>
-						<td style="vertical-align: middle;">85%</td>
-					</tr>
-				</table>
+			 <%= render 'details' %>
 			<h3>Project Description</h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id lectus ut nunc convallis viverra. Aenean vel quam arcu, id vulputate nisi. Proin fermentum ultrices purus eu ultricies. Suspendisse hendrerit sem eu lectus egestas varius consequat tortor pretium. Vestibulum gravida eros eu mauris mollis viverra. Donec sed sapien eu urna volutpat adipiscing id quis ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer luctus mattis facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum ligula a nisi pretium nec eleifend mi venenatis. Mauris id dui id eros rutrum ullamcorper.</p>
 
@@ -98,11 +53,7 @@
 			<ul id="investment-levels">
 				<li>
 					<div class="investment-block">
-						<% if signed_in? %>
-							<%= link_to number_to_currency(@project.project_fundlevel1, :precision => 0), new_investment_path(investment_fundinglevel: @project.project_fundlevel1, id: @project.id), class: 'investment-number' %>
-						<% else %>
-							<%= link_to number_to_currency(@project.project_fundlevel1, :precision => 0), new_user_registration_path, class: 'investment-number' %>
-						<% end %>
+						<%= render 'funding' %>
 					</div>
 					<div>
 						<p>Estimated savings returned: $25</p>

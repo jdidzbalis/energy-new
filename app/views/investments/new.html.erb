@@ -1,9 +1,10 @@
+<div class="page-header">
+	<h3>Invest in <%= @project.project_name %></h3>
+</div>
 <div class="container">
 	<div class="row">
-		<div class="span8">
-			<div class="page-header">
-				<h3>Invest in <%= @project.project_name %></h3>
-			</div>
+		<div class="span9">
+			
 			<div class="details-title">
 				<strong>Investment Details</strong>
 			</div>
@@ -33,26 +34,27 @@
 				<strong>Payment Checkout</strong>
 			</div>
 			<h3>Credit Card Form Goes Here</h3>
-					<%= form_for @investment, html: {class: "form-horizontal"}, method: :post do |f| %>
-					
-							<%= f.hidden_field :project_id, value: @project.id %>
-							<%= f.hidden_field :investment_fundinglevel, value: @investment.investment_fundinglevel %>
+				<%= form_for @investment, html: {class: "form-horizontal"}, method: :post do |f| %>
+				
+						<%= f.hidden_field :project_id, value: @project.id %>
+						<%= f.hidden_field :investment_fundinglevel, value: @investment.investment_fundinglevel %>
 
-						
-							<%= submit_tag "Submit Investment", class: 'btn' %>
-							<%= link_to "Cancel", projects_path(@project), class: 'btn' %>
-						
-					<% end %>
+					
+						<%= submit_tag "Submit Investment", class: 'btn' %>
+						<%= link_to "Cancel", projects_path(@project), class: 'btn' %>
+					
+				<% end %>
 		</div>
-		<div class="span3" style="border-left: 1px dotted; padding-left: 15px; margin-top: 50px;">
-			<h3>Notes:</h3>
-			<strong>Investment Approval</strong>
-			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque.</p>
-			<strong>Third Party Processor</strong>
-			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque.</p>
-			<strong>Accumulation of Returns</strong>
-			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque.</p>
-		</div>
+		<div class="span3">
+	        <div class="well sidebar-nav">
+	          <ul class="nav nav-list">
+	            <li class="nav-header">How It Works</li>
+	            <p style="font-size: 11px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id lectus ut nunc convallis viverra. Aenean vel quam arcu, id vulputate nisi. Proin fermentum ultrices purus eu ultricies. Suspendisse hendrerit sem eu lectus egestas varius consequat tortor pretium. Vestibulum gravida eros eu mauris mollis viverra. </p>
+	            <li class="nav-header">Need Help?</li>
+	            <p style="font-size: 11px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id lectus ut nunc convallis viverra. Aenean vel quam arcu, id vulputate nisi. Proin fermentum ultrices purus eu ultricies. Suspendisse hendrerit sem eu lectus egestas varius consequat tortor pretium. Vestibulum gravida eros eu mauris mollis viverra. </p>
+	          </ul>
+	        </div><!--/.well -->
+        </div>
 	</div>
 </div>
 

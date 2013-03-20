@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def index
 	@projects_recent = Project.where(:category => 'recent')
+  @projects_funded = Project.where(:category => 'funded')
 	
     respond_to do |format|
       format.html # index.html.erb
@@ -54,8 +55,6 @@ class ProjectsController < ApplicationController
       returns.calculate_investor_returns
     end
 
-    
-
     respond_to do |format|
       if @project.update_attributes(params[:project])
         format.html { redirect_to @project, notice: 'Project successfully operating. Returns now activated.' }
@@ -64,10 +63,11 @@ class ProjectsController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @return.errors, status: :unprocessable_entity }
       end
-      
-     
-
-
     end
+  end
+
+  def pdf
+    pdf_filename = File.join(Rails.root, "tmp/pdf/Cialdini-Influence.pdf")
+    send_file(pdf_filename, :disposition => 'inline', :filename => "Cialdini-Influence.pdf", :type => "application/pdf")
   end
 end

@@ -10,6 +10,7 @@
 #  investment_fundinglevel :integer
 #  state_returns           :string(255)
 #  return_per_diem         :decimal(, )
+#  return_to_date          :decimal(, )
 #
 
 class Return < ActiveRecord::Base

@@ -28,6 +28,7 @@
 #  y1savings                    :integer
 #  y1energyprice                :integer
 #  total_return_per_diem        :decimal(, )
+#  category                     :string(255)
 #
 
 require 'test_helper'

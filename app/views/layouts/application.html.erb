@@ -7,13 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "EnergyNew" %></title>
     <%= csrf_meta_tags %>
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
-    <![endif]-->
-
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag    "styles", :media => "all" %>
+    <%= stylesheet_link_tag params[:controller] %>
     <%= javascript_include_tag "application" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -36,7 +31,7 @@
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
   </head>
-  <body>
+<body>
 
 <script type="text/javascript" src="/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/js/jquery.js"></script>  
 <script type="text/javascript" src="/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/js/bootstrap-dropdown.js"></script>  
@@ -46,74 +41,33 @@
         });  
 </script>  
 <div class="wrapper">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="../">EnergyNew</a>
-            <ul class="nav">
-              <li><%= link_to "Browse Projects", projects_path  %></li>
-              <li><%= link_to "Submit Project", projects_path  %></li>
-              <li><form class="navbar-search pull-left">
-                <input type="text" class="search-query" placeholder="Search Project">
-              </form>
-              </li>
-            </ul>
-				<ul class="nav pull-right">
-        <% if user_signed_in? %>
-					<li class="dropdown">
-						 <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-      						<%= current_user.full_name %>
-      						<b class="caret"></b>
-    					</a>
-    					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-		  						<li><%= link_to 'View Your Investments', investments_path %></li>
-                  <li><%= link_to 'View Your Credit Account', returns_path %></li>
-	   							<li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-    					</ul>
-    				</li>
-					<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-        <% elsif admin_signed_in? %>
-          <li class="dropdown">
-             <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-              <%= current_admin.first_name %>
-                  <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  <li><%= link_to 'Add Project', new_project_path %></li>
-                  <li><%= link_to 'Enter Savings', returns_path %></li>
-                  <li><%= link_to 'Process Returns', projects_path %></li>
-              </ul>
-            </li>
-          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-				<% else %>
-					<li><%= link_to "Sign Up", register_path %></li>
-					<li><%= link_to "Sign In", login_path %></li>
-				<% end %>
-			</ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-          <div class="span9">
-            <%= bootstrap_flash %>
-            <%= yield %>
-          </div>
-        </div><!--/row-->
-    </div> <!-- /container -->
+    <%= render 'layouts/header' %>
+      <div class="container">
+          <div class="row">
+            <div class="span9">
+                <% if flash[:notice] %>
+                    <div class="alert alert-success">
+                        <button class="close" data-dismiss="alert">x</button>
+                        <%= flash[:notice] %>
+                    </div>
+                <% end %>
+                <% if flash[:alert] %>
+                    <div class="alert alert-error">
+                        <button class="close" data-dismiss="alert">x</button>
+                        <%= flash[:alert] %>
+                    </div>
+                <% end %>
+              <%= yield %>
+            </div>
+          </div><!--/row-->
+      </div> <!-- /container -->
     <div class="push"></div>
 </div>
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
 
-  <footer>
-      <div class="container">
-        <p>EnergyNew 2013 | Toronto, Ontario</p>
-      </div>
-    </footer>
+<%= javascript_include_tag "application" %>
 
-  </body>
+<%= render 'layouts/footer' %>
+
+</body>
+
 </html>

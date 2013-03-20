@@ -28,6 +28,7 @@
 #  y1savings                    :integer
 #  y1energyprice                :integer
 #  total_return_per_diem        :decimal(, )
+#  category                     :string(255)
 #
 
 class Project < ActiveRecord::Base
@@ -36,11 +37,11 @@ class Project < ActiveRecord::Base
 	attr_accessible :avatar, :project_name, :project_owner, :project_location, :project_opdate,
 				:project_cost, :project_esavings, :project_fundlevel1, :project_fundlevel2, :project_fundlevel3,
 				:project_fundlevel4, :project_fundlevel5, :project_currentfunded, :project_percentcurrentfunded,
-				:project_fundingstatus, :project_sharesavings, :y1savings, :y1energyprice, :total_return_per_diem
+				:project_fundingstatus, :project_sharesavings, :y1savings, :y1energyprice, :total_return_per_diem, :category
 
   has_many :investments
   has_many :credits
-  has_attached_file :avatar, :styles => { :large => "940x600#", :medium => "300x200>", :small => "64x64>" },
+  has_attached_file :avatar, :styles => { :large => "940x600#", :medium => "300x200#", :small => "64x64>" },
 		:path => ":rails_root/public/system/:attachment/:id/:style/:filename",
       	:url => "/system/:attachment/:id/:style/:filename"
 

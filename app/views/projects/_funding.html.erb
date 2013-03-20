@@ -1,0 +1,5 @@
+<% if signed_in? %>
+	<%= link_to number_to_currency(@project.project_fundlevel1, :precision => 0), new_investment_path(investment_fundinglevel: @project.project_fundlevel1, id: @project.id), class: 'investment-number' %>
+<% else %>
+	<%= link_to number_to_currency(@project.project_fundlevel1, :precision => 0), new_user_registration_path, class: 'investment-number' %>
+<% end %>

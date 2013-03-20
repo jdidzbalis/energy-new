@@ -14,9 +14,16 @@ EnergyNew::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :projects
+  resources :projects do
+    member do
+      get 'pdf'
+    end
+  end
+
   resources :investments
   resources :returns
+
+
 
 
   # The priority is based upon order of creation:

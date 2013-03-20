@@ -12,7 +12,7 @@ gem 'state_machine'
 gem 'js-routes'
 gem 'paperclip', '~> 3.4.0'
 gem 'rmagick'
-gem 'twitter-bootstrap-rails'
+
 
 group :production do
   gem 'pg'
@@ -24,9 +24,11 @@ group :development do
 end
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+	gem 'bootstrap-sass', '~> 2.3.1.0'
+	gem 'sass-rails', '~> 3.2'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  
 end
 
 gem 'jquery-rails'

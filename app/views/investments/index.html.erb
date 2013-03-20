@@ -16,37 +16,65 @@
 					</li>
 				</ul>
 				<div class="tab-content">
-				<div class="tab-pane active" id="tab1">
-								<table class="table">
+					<% @investments.each do |investment| %>
+					<% project = investment.project %>
+						<% if project.inprogress? %>
+							<div class="tab-pane active" id="tab1">
+								<table class="table table-striped">
+									<strong><%= link_to project.project_name %> by <%= project.project_owner %></strong>
 									<tr>
-								    	<td><strong>Project Name</strong></td>
-								    	<td><strong>Project Owner</strong></td>
-								    	<td><strong>Your Investment</strong></td>
-								    	<td><strong>Percent Funded</strong></td>
-								    	<td><strong>Est. Operation Date</strong></td>
-								    	<td><strong></strong></td>
+										<th>Your Investment</th>
+										<th>Percent Funded</th>
+										<th></th>
+										<th></th>
 									</tr>
-									<% @investments.each do |investment| %>
-										<% project = investment.project %>
-										<% if project.inprogress? %>
-												<tr>
-													<td><%= link_to project.project_name %></td>
-											    	<td><%= project.project_owner %></td>
-											    	<td><%= number_to_currency(investment.investment_fundinglevel, :precision => 0) %></td>
-											    	<td><%= number_to_percentage(project.project_percentcurrentfunded, :precision => 0) %></td>
-											    	<td>March 2014</td>
-											    	<td><%= link_to "View Project", project %></td>
-											    </tr>
-											
-										<% end %>
-									<% end %>
-								</table>		
+									<tr>
+								    	<td><%= number_to_currency(investment.investment_fundinglevel, :precision => 0) %></td>
+								    	<td><%= number_to_percentage(project.project_percentcurrentfunded, :precision => 0) %></td>
+								    	<td><%= link_to "View Project", project %></td>
+								    	<td><%= link_to "View Audit", project %></td>
+								    </tr>
+								</table>
+							</div>
+						<% elsif project.completed? %>
+							<div class="tab-pane active" id="tab2">
+								<table class="table table-striped">
+									<strong><%= link_to project.project_name %> by <%= project.project_owner %></strong>
+									<tr>
+										<th>Your Investment</th>
+										<th>Percent Funded</th>
+										<th></th>
+										<th></th>
+									</tr>
+									<tr>
+								    	<td><%= number_to_currency(investment.investment_fundinglevel, :precision => 0) %></td>
+								    	<td><%= number_to_percentage(project.project_percentcurrentfunded, :precision => 0) %></td>
+								    	<td><%= link_to "View Project", project %></td>
+								    	<td><%= link_to "View Audit", project %></td>
+								    </tr>
+								</table>
+							</div>
+						<% else project.operational? %>
+							<div class="tab-pane active" id="tab3">
+								<table class="table table-striped">
+									<strong><%= link_to project.project_name %> by <%= project.project_owner %></strong>
+									<tr>
+										<th>Your Investment</th>
+										<th>Percent Funded</th>
+										<th></th>
+										<th></th>
+									</tr>
+									<tr>
+								    	<td><%= number_to_currency(investment.investment_fundinglevel, :precision => 0) %></td>
+								    	<td><%= number_to_percentage(project.project_percentcurrentfunded, :precision => 0) %></td>
+								    	<td><%= link_to "View Project", project %></td>
+								    	<td><%= link_to "View Audit", project %></td>
+								    </tr>
+								</table>
+							</div>
+						<% end %>
+					<% end %>
 				</div>
-				<div class="tab-pane" id="tab2">
-				</div>
-				<div class="tab-pane" id="tab3">
-				</div>
-			</div>
 		</div>
 		 <div class="span3">
             <div class="well sidebar-nav">
