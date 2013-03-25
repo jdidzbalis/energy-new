@@ -1,10 +1,10 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="../">EnergyNew</a>
+      <a class="brand" href="../">EnergyProject</a>
         <ul class="nav">
           <li><%= link_to "Browse Projects", projects_path  %></li>
-          <li><%= link_to "Submit Project", projects_path  %></li>
+          <li><%= link_to "Submit Project", submit_path  %></li>
           <li><form class="navbar-search pull-left">
             <input type="text" class="search-query" placeholder="Search Project">
           </form>
@@ -12,31 +12,31 @@
         </ul>
 		<ul class="nav pull-right">
     <% if user_signed_in? %>
-			<li class="dropdown">
-				 <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-  						<%= current_user.full_name %>
-  						<b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-  						<li><%= link_to 'View Your Investments', investments_path %></li>
-              <li><%= link_to 'View Your Credit Account', returns_path %></li>
- 							<li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-					</ul>
-				</li>
-			<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-    <% elsif admin_signed_in? %>
-      <li class="dropdown">
-         <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-          <%= current_admin.first_name %>
-              <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <li><%= link_to 'Add Project', new_project_path %></li>
-              <li><%= link_to 'Enter Savings', returns_path %></li>
-              <li><%= link_to 'Process Returns', projects_path %></li>
-          </ul>
-        </li>
-      <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+      <% if current_user.admin? %>
+            <li class="dropdown">
+             <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+              <%= current_user.full_name %>
+                  <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><%= link_to 'Add Project', new_project_path %></li>
+              </ul>
+            </li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+    			<li class="dropdown">
+    				 <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+      						<%= current_user.full_name %>
+      						<b class="caret"></b>
+    					</a>
+    					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      						<li><%= link_to 'View Your Investments', investments_path %></li>
+                  <li><%= link_to 'View Your Credit Account', returns_path %></li>
+     							<li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+    					</ul>
+    				</li>
+    			<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>   
+      <% end %> 
 		<% else %>
 			<li><%= link_to "Sign Up", register_path %></li>
 			<li><%= link_to "Sign In", login_path %></li>

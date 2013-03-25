@@ -24,6 +24,5 @@ validates :project_id, presence: true
 validates :investment_fundinglevel, presence: true
 
 
-
   		
 end

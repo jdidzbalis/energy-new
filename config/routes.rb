@@ -1,7 +1,5 @@
 EnergyNew::Application.routes.draw do
   
-  devise_for :admins
-
   devise_for :users
 
   devise_scope :user do
@@ -22,6 +20,10 @@ EnergyNew::Application.routes.draw do
 
   resources :investments
   resources :returns
+  resources :charges
+
+  get 'submit', to: 'projects#submit'
+  get 'invest', to: 'investments#new'
 
 
 

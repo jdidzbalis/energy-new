@@ -12,6 +12,8 @@ gem 'state_machine'
 gem 'js-routes'
 gem 'paperclip', '~> 3.4.0'
 gem 'rmagick'
+gem 'cancan'
+gem 'stripe'
 
 
 group :production do
@@ -32,4 +34,5 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'friendly_id'
 

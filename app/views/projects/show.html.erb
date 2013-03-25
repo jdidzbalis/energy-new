@@ -28,7 +28,7 @@
 			</div>
 		</div>
 </div>
-<div class="container" style="margin-top: 600px;">
+<div class="container" style="margin-top: 630px;">
 	<% if @project.completed? %>
 	<div style="background-color: #cccccc;">
 		<h4 style="text-align: center; padding-top: 10px; padding-bottom: 10px;">PROJECT IS FULLY FUNDED</h4>
@@ -36,19 +36,22 @@
 	<% end %>
 	<div class="row">
 		<div class="span8">
-
+			<div class="well">
 			<h3>Project Details</h3>
 			 <%= render 'details' %>
+			</div>
+			<div class="well">
 			<h3>Project Description</h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id lectus ut nunc convallis viverra. Aenean vel quam arcu, id vulputate nisi. Proin fermentum ultrices purus eu ultricies. Suspendisse hendrerit sem eu lectus egestas varius consequat tortor pretium. Vestibulum gravida eros eu mauris mollis viverra. Donec sed sapien eu urna volutpat adipiscing id quis ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer luctus mattis facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum ligula a nisi pretium nec eleifend mi venenatis. Mauris id dui id eros rutrum ullamcorper.</p>
 
 			<p>Donec dapibus tincidunt lectus et mollis. Mauris eleifend placerat neque. Mauris pretium auctor tristique. Phasellus erat erat, lobortis sit amet iaculis vitae, tincidunt in eros. Curabitur feugiat pulvinar ligula, ut hendrerit nisi vulputate vel. Aliquam suscipit facilisis ultricies. Suspendisse id metus augue. Donec fermentum elit molestie urna facilisis commodo. Curabitur auctor, quam vel consequat pellentesque, nisi arcu vulputate dolor, vitae malesuada augue nisi in neque. Cras dictum scelerisque urna, sit amet consectetur elit vestibulum vulputate. Mauris eget libero eget lacus lobortis commodo. Donec sit amet ipsum nisl. Integer hendrerit, justo non semper cursus, leo velit ullamcorper lorem, vel consequat mi nunc sit amet justo.</p>
-			
+			</div>
 			<h3>Project Location</h3>
 
 		</div>
 
 		<div class="span4">
+			<div class="well">
 			<h3>Investment Levels</h3>
 			<ul id="investment-levels">
 				<li>
@@ -62,7 +65,7 @@
 				<li>
 					<div class="investment-block">
 						<% if signed_in? %>
-							<%= link_to number_to_currency(@project.project_fundlevel2, :precision => 0), new_investment_path(investment_fundinglevel: @project.project_fundlevel2, id: @project.id), class: 'investment-number' %>
+							<%= link_to number_to_currency(@project.project_fundlevel2, :precision => 0), invest_path(investment_fundinglevel: @project.project_fundlevel2, id: @project.id), class: 'investment-number' %>
 						<% else %>
 							<%= link_to number_to_currency(@project.project_fundlevel2, :precision => 0), new_user_registration_path, class: 'investment-number' %>
 						<% end %>
@@ -109,6 +112,7 @@
 				</li>				
 			</ul>
 		</div>
+	</div>
 	</div>
 </div>
 	

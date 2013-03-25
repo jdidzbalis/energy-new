@@ -1,6 +1,6 @@
 class ReturnsController < ApplicationController
-  # GET /returns
-  # GET /returns.json
+  load_and_authorize_resource
+
   def index
     @returns = Return.where(:user_id => current_user, :state_returns => 'active')
 

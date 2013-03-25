@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  load_and_authorize_resource
+
   def index
 	@projects_recent = Project.where(:category => 'recent')
   @projects_funded = Project.where(:category => 'funded')

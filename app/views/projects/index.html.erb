@@ -40,18 +40,7 @@
 				  			<p>SAVINGS</p>
 				  		</div>
 		  			</div>
-		  			<% if admin_signed_in? %>
-		  				<% @project = project %>
-		  				<div class="index-operational">
-		  					<%= simple_form_for @project do |f| %>
-						        <%= f.input :y1savings, label: 'Year 1 Enery Savings' %>
-						        <%= f.input :y1energyprice, label: 'Year 1 Energy Price' %>						        
-							        <div class="actions">
-							          <%= f.button :submit, "Make Operational" %>
-							        </div>
-					      <% end %>
-		  				</div>
-		  			<% end %>
+		  			
 		  		</li>
 	  		<% end %>
 	  	</ul>
@@ -90,18 +79,7 @@
 				  			<p>SAVINGS</p>
 				  		</div>
 		  			</div>
-		  			<% if admin_signed_in? %>
-		  				<% @project = project %>
-		  				<div class="index-operational">
-		  					<%= simple_form_for @project do |f| %>
-						        <%= f.input :y1savings, label: 'Year 1 Enery Savings' %>
-						        <%= f.input :y1energyprice, label: 'Year 1 Energy Price' %>						        
-							        <div class="actions">
-							          <%= f.button :submit, "Make Operational" %>
-							        </div>
-					      <% end %>
-		  				</div>
-		  			<% end %>
+		  			
 		  		</li>
 	  		<% end %>
 	  	</ul>

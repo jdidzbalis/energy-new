@@ -58,6 +58,9 @@ state_machine :project_fundingstatus, initial: :inprogress do
     end
 
 end
+
+extend FriendlyId
+friendly_id :project_name, use: :slugged 
   
 def update_current_funded
   sum = Investment.where(project_id: id).sum(:investment_fundinglevel)
