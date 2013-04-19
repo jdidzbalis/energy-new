@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130324235747) do
+ActiveRecord::Schema.define(:version => 20130419152114) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at",                             :null => false
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20130324235747) do
     t.decimal  "total_return_per_diem"
     t.string   "category"
     t.string   "slug"
+    t.boolean  "featured"
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug"

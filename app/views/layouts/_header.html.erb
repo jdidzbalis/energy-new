@@ -1,14 +1,10 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="../">EnergyProject</a>
         <ul class="nav">
-          <li><%= link_to "Browse Projects", projects_path  %></li>
-          <li><%= link_to "Submit Project", submit_path  %></li>
-          <li><form class="navbar-search pull-left">
-            <input type="text" class="search-query" placeholder="Search Project">
-          </form>
-          </li>
+          <li><%= link_to "Browse Our Projects", projects_path  %></li>
+          <li><%= link_to "Submit A Project", submit_path  %></li>
         </ul>
 		<ul class="nav pull-right">
     <% if user_signed_in? %>
