@@ -17,28 +17,7 @@
     <div class="span4">
       <%= image_tag @project.avatar(:medium) %>
     </div>
-    <div class="span5">
-      <h3 style="margin-top: -10px;"><%= link_to @project.project_name %></h3></br>
-      <h4 style="margin-top: -30px; margin-bottom: -12px;"><%= @project.project_owner %></h4></br>
-      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-      <div class="home-funding">
-          <div class="progress">
-            <div class="bar" style="width: <%= @project.project_percentcurrentfunded %>%;"></div>
-          </div>
-          <div class="home-funding-percent">
-            <strong><%= number_to_percentage(@project.project_percentcurrentfunded, :precision => 0) || number_to_percentage(0, :precision => 0)%></strong>
-            <p>FUNDED</p>
-          </div>
-          <div class="home-funding-total">
-            <strong><%= number_to_currency(@project.project_currentfunded, :precision => 0) || number_to_currency(0, :precision => 0) %></strong>
-            <p>INVESTED</p>
-          </div>
-          <div class="home-funding-savings">
-            <strong>6.5%</strong>
-            <p>EST. RETURN</p>
-          </div>
-      </div>
-    </div>
+   
     <div class="span2">
        <p>
           <%= link_to 'Browse All Investments', projects_path, class: 'btn btn-small btn-primary' %>

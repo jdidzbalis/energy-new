@@ -22,6 +22,8 @@ GEM
       activesupport (= 3.2.11)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-postgresql-adapter (0.0.1)
+      pg
     activeresource (3.2.11)
       activemodel (= 3.2.11)
       activesupport (= 3.2.11)
@@ -95,6 +97,7 @@ GEM
       activesupport (= 3.2.11)
       bundler (~> 1.0)
       railties (= 3.2.11)
+    rails-database-url (1.0.0)
     railties (3.2.11)
       actionpack (= 3.2.11)
       activesupport (= 3.2.11)
@@ -142,6 +145,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-postgresql-adapter (~> 0.0.1)
   annotate (= 2.5.0)
   bootstrap-sass (~> 2.3.1.0)
   cancan
@@ -153,6 +157,7 @@ DEPENDENCIES
   paperclip (~> 3.4.0)
   pg
   rails (= 3.2.11)
+  rails-database-url (~> 1.0.0)
   rmagick
   sass-rails (~> 3.2)
   simple_form

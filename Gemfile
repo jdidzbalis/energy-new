@@ -35,4 +35,6 @@ end
 
 gem 'jquery-rails'
 gem 'friendly_id'
+gem "rails-database-url", "~> 1.0.0"
+gem "activerecord-postgresql-adapter", "~> 0.0.1"
 
